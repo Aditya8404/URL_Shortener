@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>URL Shortener History</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" style="max-width: 400px;">Original URL</th>
+                <th scope="col" style="min-width: 100px;">Shortened URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for url in urls %}
+            <tr>
+                <th scope="row">{{ url.id }}</th>
+                <td style="max-width: 650px;"><a href="{{ url.original_url }}" target="_blank">{{ url.original_url }}</a></td>
+                <td style="min-width: 100px;"><a href="{{ url.shortened_url }}" target="_blank">{{ url.shortened_url }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
